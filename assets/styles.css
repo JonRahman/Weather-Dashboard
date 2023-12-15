@@ -11,7 +11,8 @@
   
   /* Header styles */
   .weather-header {
-    background-color: #343a40; /* Dark background for header */
+    background: rgb(2,0,36);
+    background: linear-gradient(80deg, rgba(2,0,36,1) 0%, rgba(40,59,68,1) 60%, rgba(105,105,131,1) 100%);
     color: white;
     padding: 16px 0;
   }
