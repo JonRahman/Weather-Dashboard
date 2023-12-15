@@ -1,0 +1,55 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styles */
+  .weather-header {
+    background-color: #343a40; /* Dark background for header */
+    color: white;
+    padding: 16px 0;
+  }
+  
+  /* Main content layout */
+  .container-fluid {
+    padding: 16px;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  /* Form styles */
+  .form-label {
+    margin-top: 8px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  
+
+ 
