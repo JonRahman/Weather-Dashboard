@@ -4,12 +4,24 @@ var enterCityBtn = $("#city-button")
 var searchForm = $("#search-form")
 // var pastSeachBtn = $("#past-search-button")
 
+function getCurrentDate(event) {
+    const currentDate = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+    return currentDate.toLocaleDateString('en-UK', options);
+}
+
 
 function getForecast(lat,lon,name) {
 var baseURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`
     fetch(baseURL)
-    .then(response => response.json())
-    .then(data=>console.log(data))
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Error fetching forecast:', error));
 }
 
 function getWeather(lat,lon,name) {
@@ -20,11 +32,23 @@ function getWeather(lat,lon,name) {
         .then(data=>{
             console.log("Data: ", data);
             var title = $("<h2>").text(name)
-            var temp = $("<h3>").text("temp: "+data.main.temp)
-            var humidity = $("<h3>").text("humidity: "+data.main.humidity)
-            var wind = $("<h3>").text("wind: "+data.wind.speed)
+            var date = $("<p>").text(getCurrentDate());
+            var temp = $("<h3>").text("Temp: "+data.main.temp+ "°C")
+            var humidity = $("<h3>").text("Humidity: "+data.main.humidity+ "%")
+            var wind = $("<h3>").text("Wind: "+data.wind.speed+ "KPH")
             var icon = $("<img>").attr("src",`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-            $("#today").append(title.append(icon),temp,humidity,wind)
+            $("#today").append(title.append(icon),date,temp,humidity,wind)
+        //     //get 5 day forecast and append to the fiveDay div
+        //     var fiveday = $('<div class="row">').attr({'class':'five-day','id': 'fiveday'
+        //     }).addClass('container')
+        //     $('#today').after(date,fiveday)
+        //     for (i=0; i < 5 ; i++) {
+        //         var col = $('<div>').attr({'class':'col-md-2'})
+        //         var d = data.list[i*8+1]
+        //         var card = createCard(d)
+        //         col.append(card)
+        //         $('#fiveday').append(col)
+        //         }                
         })
     }
 
