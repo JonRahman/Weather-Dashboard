@@ -93,7 +93,7 @@ function getLocation(city) {
 
 function displayForecast(forecastList) {
     for (let i = 0; i < 5; i++) {
-        const forecastData = forecastList[i * 8]; // Use i * 8 to get data for different dates
+        const forecastData = forecastList[i * 8];
 
         const dateElement = $(`#Date${i + 1}`);
         const tempElement = $(`#Temp${i + 1}`);
