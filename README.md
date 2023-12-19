@@ -33,6 +33,7 @@ SO THAT I can plan a trip accordingly
 
 ## Screenshot
 
+![image](https://github.com/JonRahman/Weather-Dashboard/assets/145556007/52eaf52d-5555-46b7-9ecf-8d61ecbcd0ce)
 
 
 
