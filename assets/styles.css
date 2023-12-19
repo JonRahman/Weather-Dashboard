@@ -26,6 +26,18 @@
     display: flex;
   }
   
+  .custom-row {
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+ .custom-col {
+    flex: 0 0 57.14285714285714%;
+    max-width: 57.14285714285714%;
+    padding: 15px;
+    border: 1px solid black;
+ }
+ 
   /* Form styles */
   .form-label {
     margin-top: 8px;
