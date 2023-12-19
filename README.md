@@ -40,4 +40,6 @@ SO THAT I can plan a trip accordingly
 
 https://github.com/JonRahman/Weather-Dashboard
 
+https://jonrahman.github.io/Weather-Dashboard/
+
 

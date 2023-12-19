@@ -92,31 +92,22 @@ function getLocation(city) {
 }
 
 function displayForecast(forecastList) {
-    
     for (let i = 0; i < 5; i++) {
-      const forecastData = forecastList[i];
-      
-      const dateElement = $(`#Date${i + 1}`);
-      const tempElement = $(`#Temp${i + 1}`);
-      const windElement = $(`#Wind${i + 1}`);
-      const humidityElement = $(`#Humidity${i + 1}`);
-      const iconElement = $(`#Icon${i + 1}`);
-  
-      dateElement.text(dayjs(forecastData.dt_txt).format('MMMM DD, YYYY'));
-      tempElement.text(`Temperature: ${forecastData.main.temp} °C`);
-      windElement.text(`Wind: ${forecastData.wind.speed} KPH`);
-      humidityElement.text(`Humidity: ${forecastData.main.humidity}%`);
-      iconElement.attr("src", `https://openweathermap.org/img/wn/${forecastData.weather[0].icon}@2x.png`);
+        const forecastData = forecastList[i * 8]; // Use i * 8 to get data for different dates
+
+        const dateElement = $(`#Date${i + 1}`);
+        const tempElement = $(`#Temp${i + 1}`);
+        const windElement = $(`#Wind${i + 1}`);
+        const humidityElement = $(`#Humidity${i + 1}`);
+        const iconElement = $(`#Icon${i + 1}`);
+
+        dateElement.text(dayjs(forecastData.dt_txt).format('MMMM DD, YYYY'));
+        tempElement.text(`Temperature: ${forecastData.main.temp} °C`);
+        windElement.text(`Wind: ${forecastData.wind.speed} KPH`);
+        humidityElement.text(`Humidity: ${forecastData.main.humidity}%`);
+        iconElement.attr("src", `https://openweathermap.org/img/wn/${forecastData.weather[0].icon}@2x.png`);
     }
-  }
-
-function pastCity() {
-
-}
-
-function clearHistory() {
-
-}
+} 
 
 function storeCity(city) {
     var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
